@@ -1,27 +1,19 @@
-# cairostarter • [![Tests](https://github.com/a5f9t4/cairostarter/actions/workflows/tests.yml/badge.svg)](https://github.com/a5f9t4/cairostarter/actions/workflows/tests.yml) [![Lints](https://github.com/a5f9t4/cairostarter/actions/workflows/lints.yml/badge.svg)](https://github.com/a5f9t4/cairostarter/actions/workflows/lints.yml) ![GitHub](https://img.shields.io/github/license/a5f9t4/cairostarter) ![GitHub package.json version](https://img.shields.io/github/package-json/v/a5f9t4/cairostarter)
+# cairosploit • [![Tests](https://github.com/a5f9t4/cairosploit/actions/workflows/tests.yml/badge.svg)](https://github.com/a5f9t4/cairosploit/actions/workflows/tests.yml) [![Lints](https://github.com/a5f9t4/cairosploit/actions/workflows/lints.yml/badge.svg)](https://github.com/a5f9t4/cairosploit/actions/workflows/lints.yml) ![GitHub](https://img.shields.io/github/license/a5f9t4/cairosploit) ![GitHub package.json version](https://img.shields.io/github/package-json/v/a5f9t4/cairosploit)
 
 
-**Forkable**, **Minimal** Template for Starknet Projects.
+Working repository for Starknet Contract Exploits
 
 ## Directory Structure
 
 ```ml
 contracts
-├─ Greeter — "An example greeter contract"
-├─ interfaces
-│  ├─ IAccount — "Account Interface"
-│  ├─ IAggregatorV3 — "Chainlink V3 Aggregator Interface"
-│  ├─ IERC20 — "ERC20 Contract Interface"
-│  ├─ IERC165 — "ERC165 Contract Interface"
-│  ├─ IERC721 — "ERC721 Contract Interface"
-│  └─ IERC1155 — "ERC1155 Contract Interface"
-├─ utils
-│  ├─ Account — "Stripped account"
-│  ├─ Ownable — "Minimal, ownable contract instance"
-│  ├─ Context — "Port of OZ's Solidity Context Abstraction"
-│  └─ Pausible — "Pausible Solidity Functionality"
+├─ RedefinedReference — "Redefining References with assertions"
+├─ interfaces/
+│  └─ ...
+├─ utils/
+│  └─ ...
 tests
-└─ test_Greeter — "Test Script for the Greeter Contract"
+└─ ...
 ```
 
 ## Installation
@@ -51,13 +43,13 @@ code --install-extension cairo-0.6.2.vsix
 Clone the repository
 
 ```bash
-git clone git@github.com:a5f9t4/cairostarter.git
+git clone git@github.com:a5f9t4/cairosploit.git
 ```
 
 `cd` into it and create a Python virtual environment:
 
 ```bash
-cd cairostarter
+cd cairosploit
 python3 -m venv env
 source env/bin/activate
 ```
@@ -87,6 +79,7 @@ pytest
 
 ## Acknowledgements
 
+- [cairosploit](https://github.com/a5f9t4/cairosploit)
 - [cairomate](https://github.com/a5f9t4/cairomate)
 - [StarkWare](https://starkware.co/)
 - [OpenZeppelin](https://github.com/OpenZeppelin/cairo-contracts)
@@ -100,4 +93,4 @@ Please report any security issues you find by opening up an issue in this reposi
 
 ## License
 
-Cairostarter Contracts are released under the [AGPL-3.0-only](LICENSE).
+Cairosploit Contracts are released under the [AGPL-3.0-only](LICENSE).

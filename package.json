@@ -1,7 +1,7 @@
 {
   "name": "cairosploit",
   "version": "1.1.0",
-  "description": "Working repository for Starknet Contract Exploits",
+  "description": "Working Repository for Starknet Contract Exploits",
   "main": "index.js",
   "repository": "https://github.com/a5f9t4/cairosploit.git",
   "author": "velleity.eth <https://github.com/a5f9t4>",

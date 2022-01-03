@@ -1,7 +1,7 @@
 # cairosploit • [![Tests](https://github.com/a5f9t4/cairosploit/actions/workflows/tests.yml/badge.svg)](https://github.com/a5f9t4/cairosploit/actions/workflows/tests.yml) [![Lints](https://github.com/a5f9t4/cairosploit/actions/workflows/lints.yml/badge.svg)](https://github.com/a5f9t4/cairosploit/actions/workflows/lints.yml) ![GitHub](https://img.shields.io/github/license/a5f9t4/cairosploit) ![GitHub package.json version](https://img.shields.io/github/package-json/v/a5f9t4/cairosploit)
 
 
-Working repository for Starknet Contract Exploits
+Working Repository for Starknet Contract Exploits
 
 ## Directory Structure
 

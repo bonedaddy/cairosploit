@@ -10,9 +10,8 @@ from starkware.cairo.common.uint256 import (
     Uint256, uint256_add, uint256_sub, uint256_le, uint256_lt, uint256_check
 )
 
-## @title Greeting
-## @description A minimalistic gm
-## @description Mirrors gakonst's Dapptools-template https://github.com/gakonst/dapptools-template/blob/master/src/Greeter.sol
+## @title RedefinedReference
+## @description Exploiting redefined references
 ## @author Alucard <github.com/a5f9t4>
 
 #############################################
@@ -20,7 +19,7 @@ from starkware.cairo.common.uint256 import (
 #############################################
 
 @storage_var
-func GREETING() -> (greeting: felt):
+func _reference() -> (ref: felt):
 end
 
 #############################################
@@ -33,10 +32,26 @@ func constructor{
     pedersen_ptr: HashBuiltin*,
     range_check_ptr
 }(
-    greeting: felt
+    ref: felt
 ):
-    GREETING.write(greeting)
+    _reference.write(ref)
     return ()
+end
+
+#############################################
+##                 Exploit                 ##
+#############################################
+
+@view
+func exploit{
+    syscall_ptr: felt*,
+    pedersen_ptr: HashBuiltin*,
+    range_check_ptr
+}() -> (success: felt):
+    alloc_locals
+    let x = 5
+    assert x = 10
+    return (1)
 end
 
 #############################################
@@ -44,14 +59,13 @@ end
 #############################################
 
 @view
-func gm{
+func getRef{
     syscall_ptr: felt*,
     pedersen_ptr: HashBuiltin*,
     range_check_ptr
-}() -> (gm: felt):
-    ## Manually fetch the caller address ##
-    let (greeting: felt) = GREETING.read()
-    return (gm=greeting)
+}() -> (ref: felt):
+    let (ref: felt) = _reference.read()
+    return (ref)
 end
 
 #############################################
@@ -59,13 +73,13 @@ end
 #############################################
 
 @external
-func setGreeting{
+func setRef{
     syscall_ptr: felt*,
     pedersen_ptr: HashBuiltin*,
     range_check_ptr
 }(
-    new_greeting: felt
+    ref: felt
 ):
-    GREETING.write(new_greeting)
+    _reference.write(ref)
     return ()
 end

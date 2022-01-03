@@ -19,25 +19,22 @@ async def ownable_factory():
         constructor_calldata=[signer.public_key]
     )
 
-    greeter = await starknet.deploy(
-        "contracts/Greeter.cairo",
+    rr = await starknet.deploy(
+        "contracts/RedefinedReference.cairo",
         constructor_calldata=[
             str_to_felt("gm everybody, gm")
         ]
     )
-    return starknet, greeter, owner
+    return starknet, rr, owner
 
 
 @pytest.mark.asyncio
 async def test_constructor(ownable_factory):
-    _, greeter, _ = ownable_factory
-    expected = await greeter.gm().call()
-    assert expected.result.gm == str_to_felt("gm everybody, gm")
+    _, rr, _ = ownable_factory
+    expected = await rr.getRef().call()
+    assert expected.result.ref == str_to_felt("gm everybody, gm")
 
 @pytest.mark.asyncio
-async def test_set_greeting(ownable_factory):
-    _, greeter, owner = ownable_factory
-    new_greeting = str_to_felt("gtgm")
-    await signer.send_transaction(owner, greeter.contract_address, 'setGreeting', [new_greeting])
-    expected = await greeter.gm().call()
-    assert expected.result.gm == new_greeting
+async def test_exploit(ownable_factory):
+    _, rr, owner = ownable_factory
+    await signer.send_transaction(owner, rr.contract_address, 'exploit', [])
